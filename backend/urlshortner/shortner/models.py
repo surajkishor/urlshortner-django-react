@@ -71,9 +71,11 @@ class MyUser(AbstractBaseUser):
     
 
 class URL(models.Model):
-    original_url = models.CharField(max_length=2000)
-    short_url = models.CharField(max_length=35,unique=True)
+    original_url = models.URLField(max_length=2000)
+    short_url = models.CharField(max_length=35,unique=True,null=False)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    
 
     def __str__(self):
         return self.original_url
